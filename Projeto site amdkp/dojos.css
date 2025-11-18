@@ -1,0 +1,431 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Define a fonte */
+    background-color: #222; 
+    
+    /* Transforma o corpo numa coluna flexível */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o corpo tem no mínimo a altura do ecrã */
+}
+
+/* --- Wrapper Principal --- */
+.main-content-wrapper {
+    /* flex: 1 faz com que este elemento empurre o footer para o fundo */
+    flex: 1 0 auto; 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; REMOVIDO PARA PERMITIR SCROLL NORMAL EM PÁGINAS LONGAS */
+    width: 100%;
+    margin-top: 5vh;
+    margin-bottom: 4rem; /* Espaço extra antes do footer */
+}
+
+.site-logo {
+    width: 100%;
+    max-width: 550px; 
+    height: auto;    
+    margin-bottom: 2rem; 
+}
+
+/* --- CÓDIGO DO SLIDER (Necessário para funcionar o fundo) --- */
+#background-slider {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;   
+    z-index: -2;     
+}
+
+.slide {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out; 
+}
+
+.slide.active {
+    opacity: 1; 
+}
+
+#slider-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: -1; 
+}
+
+/* --- ESTILO DOS CARDS (Mantido caso uses os cards normais) --- */
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.card {
+    background-color: #2b2b2b;
+    color: white;
+    padding: 1.5rem;
+    height: 150px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, 
+                box-shadow 0.3s ease, 
+                background-color 0.3s ease, 
+                color 0.3s ease;
+
+    display: flex;           
+    flex-direction: column;  
+    justify-content: center; 
+    align-items: center;     
+}
+
+.card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); 
+    background-color: #c0a062; 
+    color: #222; 
+}
+
+.card h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-top: auto;    
+    margin-bottom: auto; 
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #ccc; 
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.card:hover p {
+    color: #333; 
+}
+
+.card-siga-btn {
+    display: inline-block;
+    background-color: #fbf9f9;
+    color: #222;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 0; 
+}
+
+.card:hover .card-siga-btn {
+    background-color: #0e0f10; 
+    color: white;
+}
+
+/* --- RESPONSIVIDADE DOS CARDS --- */
+@media (min-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        width: 85%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-container {
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%; 
+    }
+}
+
+
+/* =========================================
+   ESTILOS ESPECÍFICOS DA PÁGINA DOJOS
+   ========================================= */
+
+/* Cabeçalho da página Dojos */
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 90%;
+    position: relative;
+}
+
+.page-header h1 {
+    color: white;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    border-bottom: 3px solid #c0a062;
+    display: inline-block;
+    padding-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.header-logo {
+    height: 60px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.back-btn {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: #c0a062;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+
+.back-btn:hover {
+    color: white;
+}
+
+/* Container dos Dojos (Grelha) */
+.dojos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsivo automático */
+    gap: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cartão Individual do Dojo */
+.dojo-card {
+    background-color: #2b2b2b;
+    border-radius: 15px;
+    overflow: hidden; /* Garante que a imagem não sai dos cantos */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.dojo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    border: 1px solid #c0a062; /* Borda dourada ao passar o rato */
+}
+
+/* Área da Foto do Dojo */
+.dojo-image-box {
+    width: 100%;
+    height: 180px; /* Altura fixa para a imagem */
+    background-color: #ffffff; /* Cor de fundo se não houver imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.dojo-image-box img {
+    width: 100%;
+    height: 100%;
+    
+    /* Mudar de 'cover' para 'contain' faz a imagem aparecer toda sem cortar */
+    object-fit: contain; 
+    
+    display: block;
+}
+.page-header .back-btn {
+    position: absolute; /* Para o botão flutuar no canto */
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1); /* Fundo ligeiramente transparente */
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+    z-index: 10; /* Para garantir que fica por cima de outros elementos */
+}
+
+.page-header .back-btn:hover {
+    background: #c0a062; /* Cor dourada ao passar o rato */
+    color: #222;
+}
+.placeholder-icon {
+    font-size: 3rem;
+    color: #666;
+}
+
+/* Conteúdo do Texto do Dojo */
+.dojo-content {
+    padding: 1.5rem;
+    text-align: center;
+    flex: 1; /* Ocupa o resto do espaço */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dojo-content h2 {
+    color: #c0a062; /* Título dourado */
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.dojo-content p {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Botão do Dojo */
+.dojo-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #c0a062;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-top: auto; /* Empurra para o fundo */
+}
+
+.dojo-btn:hover {
+    background-color: #c0a062;
+    color: #222;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.footer-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    margin-top: auto; 
+    padding-bottom: 30px; 
+    padding-top: 50px; 
+    flex-shrink: 0;
+}
+
+.footer-box {
+    width: 90%;
+    max-width: 1000px;
+    background-color: #c0a062; 
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6); 
+    padding: 25px 40px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #222; 
+}
+
+.footer-section.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-mini-logo {
+    height: 40px; 
+    width: auto;
+}
+
+.brand p {
+    font-weight: bold;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.footer-section.links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-section.links a {
+    color: #222; 
+    text-decoration: none;
+    font-weight: 800; 
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease; 
+}
+
+.footer-section.links a:hover {
+    color: #fff; 
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.footer-section.social {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #222; 
+    color: #c0a062; 
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.social-icon:hover {
+    background-color: #fff; 
+    color: #000;            
+    transform: scale(1.1);  
+}
+
+@media (max-width: 768px) {
+    .footer-box {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .footer-section.links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .back-btn {
+        position: relative; 
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+}

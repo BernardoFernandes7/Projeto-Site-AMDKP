@@ -1,0 +1,148 @@
+/* =========================================
+   LAYOUT GERAL
+   ========================================= */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Fundo preto igual ao index.html */
+    background-color: #222; 
+    font-family: Arial, sans-serif;
+    
+    /* Configuração Flexbox para empurrar o footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* O corpo ocupa pelo menos 100% da altura do ecrã */
+}
+
+/* O conteúdo principal deve ocupar o espaço extra */
+.main-content-wrapper {
+    flex: 1 0 auto; /* Permite que este bloco cresça e empurre o footer */
+    /* Adicionamos uma margem extra no topo e no fundo para afastar o conteúdo */
+    margin-top: 5vh; 
+    margin-bottom: 50px; 
+}
+
+/* Estilo específico para o conteúdo da página Training */
+.training-content {
+    text-align: center;
+    padding-top: 100px;
+    color: white;
+}
+
+.training-content h1 { 
+    color: #c0a062; 
+    font-size: 2.5rem;
+}
+
+/* =========================================
+   FOOTER (A CAIXA AMARELA)
+   ========================================= */
+.footer-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    margin-top: auto; /* Empurra para o fundo disponível */
+    padding-bottom: 30px; 
+    padding-top: 50px;
+    flex-shrink: 0;
+}
+
+/* --- A CAIXA AMARELA --- */
+.footer-box {
+    width: 90%;
+    max-width: 1000px;
+    background-color: #c0a062; 
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6); 
+    padding: 25px 40px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #222; 
+}
+
+/* --- TEXTOS E LINKS --- */
+.footer-section.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-mini-logo {
+    height: 40px; 
+    width: auto;
+}
+
+.brand p {
+    font-weight: bold;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.footer-section.links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-section.links a {
+    color: #222; 
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease; 
+}
+
+.footer-section.links a:hover {
+    color: #fff; 
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* --- BOTÕES REDES SOCIAIS (Lado Direito) --- */
+.footer-section.social {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #222; 
+    color: #c0a062;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.social-icon:hover {
+    background-color: #fff;
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .footer-box {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .footer-section.links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

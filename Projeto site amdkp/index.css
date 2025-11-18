@@ -1,0 +1,483 @@
+/* O 'body' é a página inteira */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte */
+    background-color: #222; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+/* --- CÓDIGO NOVO: Wrapper Principal e Logo --- */
+
+.main-content-wrapper {
+    display: flex;
+    flex-direction: column; /* Empilha os itens (logo em cima, cards em baixo) */
+    align-items: center;    /* Centra tudo horizontalmente */
+    width: 100%;
+    margin-top: 5vh;
+}
+
+.site-logo {
+    width: 100%;
+    max-width: 550px; /* Define um tamanho máximo para o logo */
+    height: auto;     /* Mantém a proporção */
+    
+    /* Adiciona espaço entre o logo e os cards */
+    margin-bottom: 2rem; 
+}
+/* --- CÓDIGO DO SLIDER --- */
+
+#background-slider {
+    position: fixed; /* Fica fixo no ecrã */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;   /* Ocupa a altura toda do ecrã */
+    z-index: -2;     /* Fica atrás de TUDO */
+}
+
+.slide {
+    position: absolute; /* Põe os slides uns em cima dos outros */
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 1.5s ease-in-out; /* Duração do fade */
+}
+
+.slide.active {
+    opacity: 1; /* O slide ativo fica visível */
+}
+
+#slider-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4); /* Filtro escuro (40%) */
+    z-index: -1; /* Fica entre o slider (-2) e o conteúdo (0) */
+}
+
+.card-container {
+    display: grid;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    
+}
+.card {
+    background-color: #2b2b2b;
+    color: white;
+    padding: 1.5rem;
+    height: 150px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, 
+                box-shadow 0.3s ease, 
+                background-color 0.3s ease, 
+                color 0.3s ease;
+    display: flex;           
+    flex-direction: column;  
+    justify-content: center; 
+    align-items: center;     
+}
+.card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); 
+    background-color: #c0a062; /* Muda o fundo para dourado */
+    color: #222; /* Muda a cor de todo o texto dentro do card para preto */
+}
+
+.card h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-top: auto;    
+    margin-bottom: auto; 
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #ccc; /* Cor cinza original */
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.card:hover p {
+    color: #333; /* Fica um cinza escuro (mais suave que preto) */
+}
+
+.card-siga-btn {
+    display: inline-block;
+    background-color: #fbf9f9;
+    color: #222;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 0; 
+}
+.card:hover .card-siga-btn {
+    background-color: #0e0f10; 
+    color: white;
+}
+
+/* RESPONSIVIDADE DOS CARDS --- */
+
+@media (min-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        width: 85%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-container {
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%; 
+    }
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222; 
+    
+    /* Transforma o corpo numa coluna flexível */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o corpo tem no mínimo a altura do ecrã */
+}
+.main-content-wrapper {
+    flex: 1 0 auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centra os cards no meio do espaço livre */
+    width: 100%;
+    margin-top: 5vh;
+    margin-bottom: 2rem; /* Dá um espaço mínimo antes do footer */
+}
+/* --- FOOTER TIPO CAIXA FLUTUANTE --- */
+
+/* --- WRAPPER DO FOOTER (A área invisível que segura a caixa) --- */
+/* --- WRAPPER DO FOOTER --- */
+.footer-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    margin-top: auto; 
+    padding-bottom: 30px; 
+    padding-top: 50px; /* Protege os elementos de cima */
+    flex-shrink: 0;
+}
+
+/* --- A CAIXA AMARELA --- */
+.footer-box {
+    /* TAMANHO */
+    width: 90%;
+    max-width: 1000px;
+    
+    /* ESTILO: Fundo Amarelo/Dourado */
+    background-color: #c0a062; 
+    border-radius: 15px;
+    
+    /* Sombra forte para destacar a caixa amarela do fundo preto do site */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6); 
+    
+    padding: 25px 40px; 
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Cor do texto geral (escuro para contrastar com o amarelo) */
+    color: #222; 
+}
+
+/* --- TEXTOS E LINKS --- */
+
+/* Lado Esquerdo (Marca) */
+.footer-section.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-mini-logo {
+    height: 40px; 
+    width: auto;
+    /* Opcional: Filtro para deixar o logo preto se for necessário */
+    /* filter: brightness(0); */ 
+}
+
+.brand p {
+    font-weight: bold;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Centro (Links de Navegação) */
+.footer-section.links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-section.links a {
+    color: #222; /* Texto escuro */
+    text-decoration: none;
+    font-weight: 800; /* Mais grosso para ler bem */
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Transição suave */
+    transition: all 0.3s ease; 
+}
+
+/* EFEITO HOVER NOS LINKS: Ficam brancos e sobem um pouco */
+.footer-section.links a:hover {
+    color: #fff; 
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* --- BOTÕES REDES SOCIAIS (Lado Direito) --- */
+.footer-section.social {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    
+    /* Fundo escuro original */
+    background-color: #222; 
+    color: #c0a062; /* Ícone amarelo igual ao fundo da caixa */
+    
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.social-icon:hover {
+    background-color: #fff; /* Fundo vira branco */
+    color: #000;            /* Ícone vira preto */
+    transform: scale(1.1);  /* Aumenta ligeiramente */
+}
+
+/* --- RESPONSIVIDADE --- */
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .footer-box {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .footer-section.links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* APAGUEI O CÓDIGO EXTRA QUE ESTAVA AQUI EM BAIXO POIS PERTENCIA A UM OUTRO TIPO DE FOOTER */
+/* Logo */
+.footer-logo {
+    max-width: 120px;
+    margin-bottom: 1rem;
+}
+
+/* Links */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col a:hover {
+    color: #c0a062; /* Dourado ao passar o rato */
+    padding-left: 5px; /* Pequeno movimento para a direita */
+}
+
+/* Ícones */
+.contact-list i {
+    color: #c0a062;
+    margin-right: 8px;
+}
+
+.social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background: #333;
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background: #c0a062;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* Rodapé final */
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+    font-size: 0.85rem;
+}
+
+
+
+
+/* --- ESTILO DO MODAL (LOGIN) --- */
+
+/* Fundo escuro que cobre o site todo */
+.modal-overlay {
+    display: none; /* Escondido por defeito */
+    position: fixed; 
+    z-index: 100; /* Fica à frente de tudo */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.8); /* Fundo preto transparente */
+    backdrop-filter: blur(5px); /* Desfoca o fundo (efeito moderno) */
+}
+
+/* A caixa do formulário */
+.modal-box {
+    background-color: #2b2b2b;
+    margin: 10% auto; /* 10% do topo e centrado */
+    padding: 30px;
+    border: 2px solid #c0a062; /* Borda Dourada */
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    color: white;
+    position: relative;
+    box-shadow: 0 0 20px rgba(192, 160, 98, 0.3);
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+/* Botão de fechar (X) */
+.close-modal {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: #c0a062;
+}
+
+.modal-box h2 {
+    color: #c0a062;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.modal-box p {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Campos do formulário */
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #c0a062;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 45px; /* Espaço para o ícone */
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    font-size: 1rem;
+    box-sizing: border-box; /* Garante que o padding não aumenta a largura */
+}
+
+.input-group input:focus {
+    border-color: #c0a062;
+}
+
+/* Botão Entrar */
+.modal-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #c0a062;
+    color: #222;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.modal-btn:hover {
+    background-color: #fff;
+    color: #000;
+}

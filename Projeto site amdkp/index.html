@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMDK-P | Início</title>
+    <link rel="short icon" href="https://www.amdkp.pt/logotipo/logo_AMDK-P_Principal_1.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div id="background-slider">
+       <div class="slide active" style="background-image: url('imagens/img1.jpg.jpeg');"></div>
+       <div class="slide" style="background-image: url('imagens/img2.jpg.jpeg');"></div>
+       <div class="slide" style="background-image: url('imagens/img3.jpg.jpeg');"></div>
+       <div class="slide" style="background-image: url('imagens/img4.jpg.jpeg');"></div>
+       <div class="slide" style="background-image: url('imagens/img5.jpg.jpeg');"></div>
+       <div class="slide" style="background-image: url('imagens/img6.jpg.jpeg');"></div>
+       <div class="slide" style="background-image: url('imagens/img7.jpg.jpeg');"></div>
+       <div class="slide" style="background-image: url('imagens/img8.jpg.jpeg');"></div>
+    </div>
+    <div id="slider-overlay"></div>
+
+    <div class="main-content-wrapper">
+
+        <img src="https://www.amdkp.pt/logotipo/logo_AMDK-P_Principal_1.png" alt="Logotipo AMDKP" class="site-logo">
+
+        <div class="card-container">
+        
+            <div class="card">
+                <h2>Site</h2>
+                <a href="https://www.amdkp.pt/" target="_blank" class="card-siga-btn">SIGA</a>
+            </div>
+            
+            <div class="card">
+                <h2>Training</h2>
+                <a href="#" id="training-btn" class="card-siga-btn">SIGA</a>
+            </div>
+            
+            <div class="card">
+                <h2>Dojos</h2>
+                <a href="dojos.html" class="card-siga-btn">SIGA</a>
+            </div>
+            
+            <div class="card">
+                <h2>Área reservada</h2>
+                <a href="https://outra-pagina.com" class="card-siga-btn">SIGA</a>
+            </div>
+
+        </div> 
+        
+    </div> 
+
+    <footer class="footer-wrapper">
+        <div class="footer-box">
+            
+            <div class="footer-section brand">
+                <img src="https://www.amdkp.pt/logotipo/logo_AMDK-P_Principal_1.png" alt="Logo" class="footer-mini-logo">
+                <p>&copy; 2025 AMDK-P</p>
+            </div>
+
+            <div class="footer-section links">
+                <a href="dojos.html">Dojos</a>
+                <a href="#">Training</a>
+                <a href="#">Contactos</a>
+                <a href="#">Termos e condições</a>
+            </div>
+
+            <div class="footer-section social">
+                <a href="https://www.facebook.com/profile.php?id=61565124600449" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="close-modal">&times;</span>
+            <h2>Acesso Restrito</h2>
+            <p>Insira os seus dados para aceder aos treinos.</p>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Nome de Utilizador" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder="Email" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Palavra-passe" required>
+                </div>
+
+                <button type="submit" class="modal-btn">ENTRAR</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>

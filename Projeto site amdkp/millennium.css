@@ -1,0 +1,296 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #222; /* Fundo escuro igual ao site principal */
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* --- HEADER --- */
+.dojo-header {
+    background-color: #2b2b2b;
+    padding: 2rem 1rem;
+    border-bottom: 3px solid #c0a062; /* Linha dourada */
+    text-align: center;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header-logo {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.dojo-header h1 {
+    color: #c0a062;
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Botão Voltar */
+.back-btn {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #c0a062;
+    color: #222;
+}
+
+/* --- CONTENTOR PRINCIPAL --- */
+.main-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+    gap: 40px;
+}
+
+h2 {
+    color: #c0a062;
+    border-left: 4px solid #c0a062;
+    padding-left: 15px;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+/* --- SECÇÃO DE INFO (Esquerda) --- */
+.info-block {
+    background-color: #2b2b2b;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.info-block h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-block h3 i {
+    color: #c0a062;
+}
+
+.info-block ul {
+    list-style: none;
+}
+
+.info-block ul li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.info-block ul li:last-child {
+    border-bottom: none;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* --- SECÇÃO DO MAPA (Direita) --- */
+.address-text {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #ddd;
+}
+
+.map-container {
+    width: 100%;
+    height: 350px;
+    background-color: #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #444;
+}
+
+.gps-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #c0a062;
+    color: #222;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.gps-btn:hover {
+    background-color: #fff;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+}
+
+/* --- RESPONSIVIDADE (Telemóvel) --- */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr; /* Passa para uma coluna */
+    }
+    
+    .back-btn {
+        position: static; /* O botão deixa de ser absoluto no topo */
+        transform: none;
+        display: inline-flex;
+        margin-bottom: 15px;
+    }
+    
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* =========================================
+   NOVO CSS DO FOOTER (CAIXA AMARELA)
+   ========================================= */
+
+/* O Wrapper que segura o footer */
+.footer-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    margin-top: auto; 
+    padding-bottom: 30px; 
+    padding-top: 50px; 
+    flex-shrink: 0;
+}
+
+/* A caixa amarela em si */
+.footer-box {
+    width: 90%;
+    max-width: 1000px;
+    background-color: #c0a062; /* Cor Dourada */
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6); 
+    padding: 25px 40px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #222; 
+}
+
+/* Lado Esquerdo (Marca) */
+.footer-section.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-mini-logo {
+    height: 40px; 
+    width: auto;
+}
+
+.brand p {
+    font-weight: bold;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #222;
+}
+
+/* Centro (Links) */
+.footer-section.links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-section.links a {
+    color: #222; 
+    text-decoration: none;
+    font-weight: 800; 
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease; 
+}
+
+.footer-section.links a:hover {
+    color: #fff; 
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Lado Direito (Redes Sociais) */
+.footer-section.social {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #222; 
+    color: #c0a062; 
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.social-icon:hover {
+    background-color: #fff; 
+    color: #000;            
+    transform: scale(1.1);  
+}
+
+/* Responsividade do Footer para Telemóvel */
+@media (max-width: 768px) {
+    .footer-box {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .footer-section.links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
